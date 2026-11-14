@@ -903,10 +903,11 @@ a:focus-visible, button:focus-visible {
         text-align: center;
     }
 
-    .floating-cta {
-        right: 16px;
-        bottom: 16px;
-        padding: 10px 16px;
-        font-size: 0.88rem;
+    /* Принудительное увеличение иконки WhatsApp независимо от атрибутов в HTML */
+    .floating-cta svg {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px;
+        min-height: 26px;
     }
 }
