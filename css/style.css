@@ -4,6 +4,7 @@
     --accent: #c59b27;
     --text-main: #1e2421;
     --text-muted: #5a6560;
+    --text-subtle: #9CA3AF;
     --bg-white: #ffffff;
     --bg-light: #f4f7f5;
     --border: #e1e8e4;
@@ -32,9 +33,8 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Компенсация высоты закрепленной шапки при клике по якорям */
 section[id], div[id] {
-    scroll-margin-top: 130px;
+    scroll-margin-top: 85px;
 }
 
 .container {
@@ -43,7 +43,7 @@ section[id], div[id] {
     padding: 0 20px;
 }
 
-/* Жестко закрепленная (липкая) шапка сверху */
+/* ================= HEADER ================= */
 .header {
     padding: 14px 0;
     border-bottom: 1px solid var(--border);
@@ -56,43 +56,75 @@ section[id], div[id] {
 
 .header__inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 }
 
 .logo {
     font-weight: 800;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     letter-spacing: 0.05em;
     color: var(--text-main);
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo span {
     color: var(--primary);
 }
 
-.nav {
+.nav--desktop {
     display: flex;
     gap: 24px;
+    flex-shrink: 0;
 }
 
-.nav a {
+.nav__link {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.2s;
+    position: relative;
+    padding: 4px 0;
 }
 
-.nav a:hover {
+.nav__link:hover,
+.nav__link.is-active {
     color: var(--primary);
+    font-weight: 600;
 }
 
-.header__controls {
+.nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Центральный блок с растянутой кнопкой «Связаться» */
+.header__center-cta {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+}
+
+.btn--stretch {
+    width: 100%;
+    max-width: 260px;
+}
+
+.header__right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .lang-switch {
@@ -106,15 +138,15 @@ section[id], div[id] {
 .lang-btn {
     border: none;
     background: transparent;
-    padding: 4px 10px;
+    padding: 4px 9px;
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--text-muted);
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.2s;
-    min-height: 32px;
-    min-width: 36px;
+    min-height: 30px;
+    min-width: 34px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -125,6 +157,84 @@ section[id], div[id] {
     color: #fff;
 }
 
+/* Кнопка Бургер-меню (по умолчанию скрыта на десктопе) */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.burger-btn span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.burger-btn.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.burger-btn.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-btn.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Выдвижное мобильное меню */
+.mobile-drawer {
+    display: none;
+    background: var(--bg-white);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.mobile-drawer.is-open {
+    max-height: 300px;
+    padding: 12px 0 16px;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 4px;
+}
+
+.mobile-nav__link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.mobile-nav__link:hover,
+.mobile-nav__link.is-active {
+    background: var(--bg-light);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ================= BUTTONS ================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -142,8 +252,8 @@ section[id], div[id] {
 
 .btn--sm {
     min-height: 38px;
-    padding: 8px 18px;
-    font-size: 0.9rem;
+    padding: 6px 14px;
+    font-size: 0.88rem;
 }
 
 .btn--primary {
@@ -171,6 +281,7 @@ section[id], div[id] {
     padding-left: 0;
 }
 
+/* ================= HERO ================= */
 .hero {
     padding: 60px 0;
 }
@@ -260,6 +371,7 @@ section[id], div[id] {
     display: block;
 }
 
+/* ================= SECTIONS & CARDS ================= */
 .section {
     padding: 80px 0;
 }
@@ -281,7 +393,7 @@ section[id], div[id] {
 }
 
 .section__subsection {
-    margin-top: 60px;
+    margin-top: 64px;
 }
 
 .stats-grid {
@@ -344,23 +456,34 @@ section[id], div[id] {
     border-left: 3px solid var(--primary);
 }
 
+/* Улучшенная контрастность и воздушность карточек 4 шагов */
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
     margin-top: 36px;
     list-style: none;
     padding: 0;
 }
 
+.step {
+    padding: 32px 26px;
+}
+
 .step__num {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 800;
     color: var(--accent);
+    line-height: 1;
     display: block;
+    margin-bottom: 14px;
+}
+
+.step h3 {
     margin-bottom: 8px;
 }
 
+/* ================= CHOICE / FORK ================= */
 .fork-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -405,37 +528,119 @@ section[id], div[id] {
     gap: 12px;
 }
 
-.footer {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
+/* ================= FLOATING CTA BUTTON ================= */
+.floating-cta {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 950;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 0.9rem;
+    padding: 12px 18px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+}
+
+/* ================= FOOTER (Обновленная иерархия) ================= */
+.footer {
+    padding: 40px 0 36px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-white);
 }
 
 .footer__inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
+    text-align: center;
+    gap: 24px;
+}
+
+.footer__brand-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer__brand-title {
+    font-weight: 600;
+    font-size: 17px; /* 16-18px по ТЗ */
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+}
+
+.footer__brand-subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-muted);
 }
 
 .footer__links {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    width: 100%;
+    max-width: 540px;
 }
 
 .footer__links a {
-    color: var(--text-muted);
+    color: var(--text-main);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    white-space: nowrap;
 }
 
 .footer__links a:hover {
+    border-color: var(--primary);
     color: var(--primary);
+    background: #fff;
 }
 
-/* Планшеты и ноутбуки */
+.footer__copyright {
+    font-size: 12px;
+    color: #9CA3AF; /* Приглушенный шрифт 12px по ТЗ */
+    margin-top: 4px;
+}
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 1024px) {
+    .nav--desktop {
+        display: none;
+    }
+
+    .burger-btn {
+        display: flex;
+    }
+
+    .mobile-drawer {
+        display: block;
+    }
+
+    .btn--stretch {
+        max-width: none; /* Кнопка «Связаться» растягивается на всю свободную ширину */
+    }
+}
+
 @media (max-width: 960px) {
     .hero__grid {
         grid-template-columns: 1fr 0.9fr;
@@ -451,10 +656,9 @@ section[id], div[id] {
     }
 }
 
-/* Мобильные устройства */
 @media (max-width: 768px) {
     section[id], div[id] {
-        scroll-margin-top: 120px; /* Учет фиксированной шапки с меню */
+        scroll-margin-top: 76px;
     }
 
     .header {
@@ -462,39 +666,19 @@ section[id], div[id] {
     }
 
     .header__inner {
-        flex-wrap: wrap;
         gap: 8px;
     }
 
     .logo {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
-    /* Аккуратное горизонтальное свайп-меню прямо в закрепленной шапке */
-    .nav {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-        gap: 6px;
-        padding: 6px 0 2px;
-        border-top: 1px solid var(--border);
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+    .btn--stretch {
+        padding: 6px 10px;
+        font-size: 0.82rem;
+        min-height: 36px;
     }
 
-    .nav::-webkit-scrollbar {
-        display: none;
-    }
-
-    .nav a {
-        flex-shrink: 0;
-        padding: 4px 10px;
-        background: var(--bg-light);
-        border-radius: 14px;
-        font-size: 0.8rem;
-    }
-
-    /* Корректный порядок в Hero (текст -> фото) */
     .hero {
         padding: 32px 0 40px;
     }
@@ -502,11 +686,6 @@ section[id], div[id] {
     .hero__grid {
         grid-template-columns: 1fr;
         gap: 24px;
-    }
-
-    .hero__image {
-        order: unset;
-        margin-top: 8px;
     }
 
     .hero__photo {
@@ -559,7 +738,6 @@ section[id], div[id] {
         font-size: 0.8rem;
     }
 
-    /* Отступы секций */
     .section {
         padding: 40px 0;
     }
@@ -577,7 +755,7 @@ section[id], div[id] {
     }
 
     .section__subsection {
-        margin-top: 36px;
+        margin-top: 40px;
     }
 
     .stats-grid,
@@ -586,7 +764,7 @@ section[id], div[id] {
     .steps-grid,
     .fork-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 18px; /* Увеличенные воздушные отступы между карточками */
     }
 
     .stat-card--wide {
@@ -595,60 +773,66 @@ section[id], div[id] {
 
     .stat-card,
     .card,
-    .step,
     .fork-card {
-        padding: 18px;
+        padding: 20px;
+    }
+
+    /* Повышенная воздушность и контраст нумерации в блоке 4 шагов */
+    .step {
+        padding: 26px 22px;
+    }
+
+    .step__num {
+        font-size: 2.15rem;
+        margin-bottom: 12px;
     }
 
     .stat-card__num {
         font-size: 1.5rem;
     }
 
-    /* Футер */
-    .footer {
-        padding: 24px 0 32px;
-    }
-
-    .footer__inner {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 16px;
-    }
-
-    .footer__info {
-        text-align: left;
-    }
-
+    /* Сетка кнопок в футере 2x2 на смартфонах */
     .footer__links {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-        width: 100%;
     }
 
     .footer__links a {
-        background: var(--bg-light);
-        padding: 8px 12px;
-        border-radius: 8px;
+        padding: 10px 12px;
         text-align: center;
-        font-size: 0.85rem;
-        border: 1px solid var(--border);
-        white-space: nowrap;
+    }
+
+    /* Компактная плавающая кнопка на смартфонах */
+    .floating-cta {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 16px;
     }
 }
 
 /* Сверхмалые экраны (320px - 375px) */
 @media (max-width: 380px) {
-    .header__controls {
+    .logo {
+        font-size: 0.9rem;
+    }
+
+    .header__inner {
         gap: 6px;
     }
 
-    .header__controls .btn--sm {
-        padding: 6px 10px;
-        font-size: 0.78rem;
+    .header__right {
+        gap: 6px;
     }
 
-    .hero h1 {
-        font-size: 1.55rem;
+    .lang-btn {
+        padding: 3px 6px;
+        min-width: 28px;
+        font-size: 0.72rem;
+    }
+
+    .burger-btn {
+        width: 34px;
+        height: 34px;
     }
 }
