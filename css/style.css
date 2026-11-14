@@ -50,6 +50,10 @@ a:focus-visible, button:focus-visible {
     scroll-margin-top: 90px;
 }
 
+#choice {
+    scroll-margin-top: 90px;
+}
+
 .container {
     max-width: 1140px;
     margin: 0 auto;
