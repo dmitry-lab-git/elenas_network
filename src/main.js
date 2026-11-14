@@ -130,7 +130,7 @@ function applyTranslations(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Точный программный скролл к якорям с учетом шапки
+    // Безупречный программный скролл к якорям с точным расчетом высоты шапки
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -141,7 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const headerHeight = document.getElementById('siteHeader').offsetHeight;
                 const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 15;
+                
+                // Делаем индивидуальный отступ для нижнего блока #choice, чтобы он идеально вставал по центру экрана
+                const extraOffset = targetId === '#choice' ? 25 : 15;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight - extraOffset;
 
                 window.scrollTo({
                     top: offsetPosition,
