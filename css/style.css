@@ -33,23 +33,11 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Точная настройка отступов под фиксированную шапку */
-#achievements {
-    scroll-margin-top: 90px;
-}
-
-#audience {
-    scroll-margin-top: 90px;
-}
-
-#system {
-    scroll-margin-top: 90px;
-}
-
-#start {
-    scroll-margin-top: 90px;
-}
-
+/* Единые точные отступы для абсолютно всех заголовков под фиксированную шапку на десктопе */
+#achievements,
+#audience,
+#system,
+#start,
 #choice {
     scroll-margin-top: 90px;
 }
@@ -449,11 +437,6 @@ a:focus-visible, button:focus-visible {
     padding: 80px 0;
 }
 
-/* Гарантируем свободное пространство под последней секцией для идеального скролла */
-#choice {
-    padding-bottom: 180px;
-}
-
 .bg-light {
     background: var(--bg-light);
 }
@@ -753,25 +736,13 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 768px) {
-    #achievements {
-        scroll-margin-top: 75px;
-    }
-
-    #audience {
-        scroll-margin-top: 75px;
-    }
-
-    #system {
-        scroll-margin-top: 75px;
-    }
-
-    #start {
-        scroll-margin-top: 75px;
-    }
-
+    /* Единые точные отступы для всех заголовков на мобильных устройствах */
+    #achievements,
+    #audience,
+    #system,
+    #start,
     #choice {
         scroll-margin-top: 75px;
-        padding-bottom: 140px;
     }
 
     .header {
