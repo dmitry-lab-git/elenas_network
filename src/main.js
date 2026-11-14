@@ -119,7 +119,6 @@ const translations = {
     }
 };
 
-// Функция перевода для вызова извне или внутри скрипта
 function applyTranslations(lang) {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -131,7 +130,7 @@ function applyTranslations(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Плавный скролл по якорным ссылкам
+    // Точный программный скролл к якорям с учетом шапки
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -140,15 +139,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerHeight = document.getElementById('siteHeader').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 15;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
 
-    // 2. Логика мобильного бургер-меню
+    // Логика мобильного бургер-меню
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const mobileLinks = document.querySelectorAll('.mobile-nav__link');
@@ -178,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Логика выпадающего меню языков (значок глобуса)
+    // Логика выпадающего меню языков
     const globeBtn = document.getElementById('globeBtn');
     const langMenu = document.getElementById('langMenu');
     const currentLangCode = document.getElementById('currentLangCode');
@@ -222,25 +225,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Интерактивная подсветка активного раздела при скролле (ScrollSpy)
-    const sections = document.querySelectorAll('section[id], div[id="start"]');
+    // Подсветка активного пункта меню при скролле
+    const anchors = ['achievements', 'audience', 'system', 'start'].map(id => document.getElementById(id));
     const allNavLinks = document.querySelectorAll('.nav__link, .mobile-nav__link');
 
     const highlightActiveSection = () => {
-        const scrollPosition = window.scrollY + 140;
+        const scrollPosition = window.scrollY + 160;
 
         let currentSectionId = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
+        anchors.forEach(anchor => {
+            if (anchor && anchor.offsetTop <= scrollPosition) {
+                currentSectionId = anchor.getAttribute('id');
             }
         });
 
         allNavLinks.forEach(link => {
             link.classList.remove('is-active');
-            if (currentSectionId && link.getAttribute('href'] === `#${currentSectionId}`) {
+            if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
                 link.classList.add('is-active');
             }
         });

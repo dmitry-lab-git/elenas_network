@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="siteHeader">
         <div class="container header__inner">
             <!-- 1. Слева: Логотип -->
             <a href="#" class="logo">ELENA'S <span>NETWORK</span></a>
@@ -90,10 +90,11 @@
             </div>
         </section>
 
-        <!-- 1. «О лидере» ведет ровно на заголовок «Опыт и результаты в цифрах» -->
+        <!-- Якорь для «О лидере» -->
+        <div id="achievements" class="section-anchor"></div>
         <section class="section bg-light">
             <div class="container">
-                <h2 id="achievements" class="section__title" data-i18n="ach_title">Опыт и результаты в цифрах</h2>
+                <h2 class="section__title" data-i18n="ach_title">Опыт и результаты в цифрах</h2>
                 <p class="section__desc" data-i18n="ach_desc">Факты, отражающие практический опыт наставника</p>
                 
                 <div class="stats-grid">
@@ -121,10 +122,11 @@
             </div>
         </section>
 
-        <!-- 2. «Для кого» ведет ровно на заголовок «Форматы участия» -->
+        <!-- Якорь для «Для кого» -->
+        <div id="audience" class="section-anchor"></div>
         <section class="section">
             <div class="container">
-                <h2 id="audience" class="section__title" data-i18n="aud_title">Форматы участия</h2>
+                <h2 class="section__title" data-i18n="aud_title">Форматы участия</h2>
                 <div class="cards-grid">
                     <article class="card">
                         <h3 data-i18n="aud1_title">Дополнительный доход</h3>
@@ -142,12 +144,13 @@
             </div>
         </section>
 
-        <!-- 3. «Система» ведет ровно на заголовок «Почему Elena's Network» -->
-        <!-- 4. «Как начать» ведет ровно на заголовок «Этапы взаимодействия» -->
         <section class="section bg-light">
             <div class="container">
-                <h2 id="system" class="section__title" data-i18n="sys_title">Почему Elena's Network</h2>
+                <!-- Якорь для «Система» -->
+                <div id="system" class="section-anchor"></div>
+                <h2 class="section__title" data-i18n="sys_title">Почему Elena's Network</h2>
                 <ul class="features-list">
+                    <script>/* Доп отступ под якорную точку */</script>
                     <li class="feature-item" data-i18n="feat1"><strong>Система обучения:</strong> пошаговые инструкции для работы на практике.</li>
                     <li class="feature-item" data-i18n="feat2"><strong>Регулярные встречи:</strong> совместные планерки и обсуждение текущих рабочих задач.</li>
                     <li class="feature-item" data-i18n="feat3"><strong>Практический опыт:</strong> методология, сформированная за годы работы в индустрии.</li>
@@ -155,7 +158,9 @@
                 </ul>
 
                 <div class="section__subsection">
-                    <h2 id="start" class="section__title" data-i18n="steps_title">Этапы взаимодействия</h2>
+                    <!-- Якорь для «Как начать» -->
+                    <div id="start" class="section-anchor"></div>
+                    <h2 class="section__title" data-i18n="steps_title">Этапы взаимодействия</h2>
                     <ol class="steps-grid">
                         <li class="step">
                             <span class="step__num">01</span>
@@ -248,3 +253,18 @@
     <script src="src/main.js" defer></script>
 </body>
 </html>
+```[cite: 1, 2]
+
+---
+
+### 2. Добавьте этот класс в ваш `style.css`
+Невидимый класс-якорь, который гарантирует правильное смещение сверху под закрепленную шапку на любой высоте экрана:
+```css
+/* Точка якорного перехода точно перед заголовком */
+.section-anchor {
+    display: block;
+    position: relative;
+    top: -85px; /* Высота шапки + отступ */
+    visibility: hidden;
+    pointer-events: none;
+}
