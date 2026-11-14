@@ -58,12 +58,12 @@ section[id], div[id] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
+    gap: 12px;
 }
 
 .logo {
     font-weight: 800;
-    font-size: 1.18rem;
+    font-size: 1.15rem;
     letter-spacing: 0.04em;
     color: var(--text-main);
     text-decoration: none;
@@ -108,7 +108,7 @@ section[id], div[id] {
     border-radius: 2px;
 }
 
-/* Центральная кнопка «Связаться», растянутая между логотипом и правой частью */
+/* Кнопка «Связаться» по центру (растянута на свободной ширине) */
 .header__center-cta {
     flex: 1;
     display: flex;
@@ -118,7 +118,7 @@ section[id], div[id] {
 
 .btn--stretch {
     width: 100%;
-    max-width: 240px;
+    max-width: 200px;
 }
 
 .header__right {
@@ -128,7 +128,7 @@ section[id], div[id] {
     flex-shrink: 0;
 }
 
-/* Значок глобуса и выпадающий выбор языка */
+/* Значок глобуса и выпадающее меню */
 .lang-dropdown {
     position: relative;
 }
@@ -137,15 +137,15 @@ section[id], div[id] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 4px;
     height: 38px;
-    padding: 0 10px;
+    padding: 0 9px;
     background: var(--bg-light);
     border: 1px solid var(--border);
     border-radius: 8px;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     cursor: pointer;
     transition: border-color 0.2s, color 0.2s, background-color 0.2s;
 }
@@ -200,7 +200,7 @@ section[id], div[id] {
     font-weight: 600;
 }
 
-/* Кнопка Бургер-меню */
+/* Бургер-меню */
 .burger-btn {
     display: none;
     flex-direction: column;
@@ -237,11 +237,11 @@ section[id], div[id] {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Выдвижное мобильное меню */
+/* Выдвижное мобильное меню (убран лишний бордер, создававший двойную линию) */
 .mobile-drawer {
     display: none;
     background: var(--bg-white);
-    border-top: 1px solid var(--border);
+    border-top: none; 
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     max-height: 0;
@@ -251,6 +251,7 @@ section[id], div[id] {
 .mobile-drawer.is-open {
     max-height: 300px;
     padding: 12px 0 16px;
+    border-top: 1px solid var(--border);
 }
 
 .mobile-nav {
@@ -595,7 +596,7 @@ section[id], div[id] {
     box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
 }
 
-/* ================= FOOTER (Переработанный дизайн) ================= */
+/* ================= FOOTER ================= */
 .footer {
     padding: 44px 0 28px;
     border-top: 1px solid var(--border);
@@ -686,10 +687,6 @@ section[id], div[id] {
     .mobile-drawer {
         display: block;
     }
-
-    .btn--stretch {
-        max-width: none;
-    }
 }
 
 @media (max-width: 960px) {
@@ -721,13 +718,15 @@ section[id], div[id] {
     }
 
     .logo {
-        font-size: 0.98rem;
+        font-size: 0.96rem; /* Компактнее, чтобы гарантированно помещаться в ряд */
     }
 
+    /* Растягиваем кнопку «Связаться» на всю свободную ширину посредине */
     .btn--stretch {
-        padding: 6px 10px;
+        padding: 6px 12px;
         font-size: 0.82rem;
         min-height: 36px;
+        max-width: none;
     }
 
     .globe-btn {
@@ -876,7 +875,7 @@ section[id], div[id] {
     }
 
     .header__inner {
-        gap: 6px;
+        gap: 5px;
     }
 
     .header__right {
@@ -884,7 +883,7 @@ section[id], div[id] {
     }
 
     .globe-btn {
-        padding: 0 6px;
-        font-size: 0.75rem;
+        padding: 0 5px;
+        font-size: 0.72rem;
     }
 }
