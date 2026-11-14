@@ -130,7 +130,7 @@ function applyTranslations(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Динамический скролл по якорным ссылкам
+    // 1. Динамический скролл по якорным ссылкам с учетом высоты шапки
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
