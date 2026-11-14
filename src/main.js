@@ -129,27 +129,29 @@ function applyTranslations(lang) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Единый точный программный скролл ко всем якорям с учетом высоты шапки
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#' || targetId.endsWith('-link')) return;
+// Замените блок скролла по якорям в main.js на этот:
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#' || targetId.length < 2) return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            const header = document.getElementById('siteHeader');
+            const headerHeight = header ? header.offsetHeight : 70;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = document.getElementById('siteHeader').offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 15;
+            // Получаем точную позицию элемента относительно документа
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - headerHeight - 10;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
     });
+});
 
     // Логика мобильного бургер-меню
     const burgerBtn = document.getElementById('burgerBtn');
