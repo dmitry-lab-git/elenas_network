@@ -10,15 +10,17 @@
 
     <header class="header">
         <div class="container header__inner">
-            <div class="logo">ELENA'S <span>NETWORK</span></div>
-            <nav class="nav">
+            <a href="#" class="logo">ELENA'S <span>NETWORK</span></a>
+            
+            <nav class="nav" aria-label="Основная навигация">
                 <a href="#achievements" data-i18n="nav_leader">О лидере</a>
                 <a href="#audience" data-i18n="nav_audience">Для кого</a>
                 <a href="#system" data-i18n="nav_system">Система</a>
                 <a href="#start" data-i18n="nav_start">Как начать</a>
             </nav>
+
             <div class="header__controls">
-                <div class="lang-switch">
+                <div class="lang-switch" role="group" aria-label="Выбор языка">
                     <button type="button" class="lang-btn active" data-lang="ru">RU</button>
                     <button type="button" class="lang-btn" data-lang="en">EN</button>
                 </div>
@@ -27,146 +29,153 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container hero__grid">
-            <div class="hero__content">
-                <span class="badge" data-i18n="hero_badge">Партнерство с Greenway • Павлодар и весь мир</span>
-                <h1 data-i18n="hero_title">Постройте системный бизнес в команде <span class="accent">Елены Мелиховой</span></h1>
-                <p class="hero__subtitle" data-i18n="hero_subtitle">
-                    Наставничество от практика с 25+ летним опытом в индустрии. Пошаговый выход на стабильный доход от 1 000 000 ₸ без хаоса и навязывания.
-                </p>
-                <div class="hero__actions">
-                    <a href="#choice" class="btn btn--primary" data-i18n="hero_cta_main">Выбрать формат участия</a>
-                    <a href="#achievements" class="btn btn--text" data-i18n="hero_cta_sec">Узнать больше о наставнике →</a>
+    <main>
+        <section class="hero">
+            <div class="container hero__grid">
+                <div class="hero__content">
+                    <span class="badge" data-i18n="hero_badge">Партнерство с Greenway • Павлодар и весь мир</span>
+                    <h1 data-i18n="hero_title">Постройте системный бизнес в команде <span class="accent">Елены Мелиховой</span></h1>
+                    <p class="hero__subtitle" data-i18n="hero_subtitle">
+                        Наставничество от практика с 25+ летним опытом в индустрии. Пошаговый выход на стабильный доход от 1 000 000 ₸ без хаоса и навязывания.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#choice" class="btn btn--primary" data-i18n="hero_cta_main">Выбрать формат участия</a>
+                        <a href="#achievements" class="btn btn--text" data-i18n="hero_cta_sec">Узнать больше о наставнике →</a>
+                    </div>
+                    <div class="hero__socials" aria-label="Социальные сети">
+                        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-pill">Instagram</a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-pill">Facebook</a>
+                        <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-pill">Telegram</a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-pill">WhatsApp</a>
+                    </div>
                 </div>
-                <div class="hero__socials">
-                    <a href="https://instagram.com" target="_blank" class="social-pill">Instagram</a>
-                    <a href="#facebook-link" target="_blank" class="social-pill">Facebook</a>
-                    <a href="https://t.me" target="_blank" class="social-pill">Telegram</a>
-                    <a href="https://wa.me" target="_blank" class="social-pill">WhatsApp</a>
-                </div>
-            </div>
-            <div class="hero__image">
-                <img src="assets/img/main_photo.png" alt="Елена Мелихова" class="hero__photo">
-            </div>
-        </div>
-    </section>
-    <section id="achievements" class="section bg-light">
-        <div class="container">
-            <h2 class="section__title" data-i18n="ach_title">Опыт и результаты в цифрах</h2>
-            <p class="section__desc" data-i18n="ach_desc">Факты, которые говорят громче любых обещаний</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-card__num" data-i18n="stat1_num">с 1998</div>
-                    <div class="stat-card__text" data-i18n="stat1_text">года в сетевом предпринимательстве (включая 15+ лет успешного опыта в компании Vision)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card__num" data-i18n="stat2_num">1 000 000+ ₸</div>
-                    <div class="stat-card__text" data-i18n="stat2_text">подтвержденный личный ежемесячный чек в партнерстве с Greenway (с 2019 года)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card__num">50+</div>
-                    <div class="stat-card__text" data-i18n="stat3_text">активных бизнес-партнеров в первой линии, развивающих свое дело</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card__num">L1 Pro</div>
-                    <div class="stat-card__text" data-i18n="stat4_text">высокая лидерская квалификация и двукратный обладатель награды «Лучший спикер»</div>
-                </div>
-                <div class="stat-card stat-card--wide">
-                    <div class="stat-card__num" data-i18n="stat5_num">1 место</div>
-                    <div class="stat-card__text" data-i18n="stat5_text">РЦ Павлодара по всей сети Greenway по количеству гостей на мероприятии Product Day</div>
+                <div class="hero__image">
+                    <img src="assets/img/main_photo.png" alt="Елена Мелихова" class="hero__photo" fetchpriority="high">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="audience" class="section">
-        <div class="container">
-            <h2 class="section__title" data-i18n="aud_title">Кому подойдет работа в команде</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <h3 data-i18n="aud1_title">Дополнительный доход</h3>
-                    <p data-i18n="aud1_text">Для тех, кто хочет создать финансовую подушку параллельно с основной работой или декретом, уделяя бизнесу 2–3 часа в день по готовому алгоритму.</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="aud2_title">Старт в предпринимательстве</h3>
-                    <p data-i18n="aud2_text">Для тех, кто намерен развивать предпринимательскую стезю с нуля без крупных вложений, аренды и рисков при плотной поддержке наставника.</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="aud3_title">Опытным предпринимателям</h3>
-                    <p data-i18n="aud3_text">Для владельцев бизнеса, которые ищут новые перспективные направления с готовой международной логистикой и эко-продуктом.</p>
+        <section id="achievements" class="section bg-light">
+            <div class="container">
+                <h2 class="section__title" data-i18n="ach_title">Опыт и результаты в цифрах</h2>
+                <p class="section__desc" data-i18n="ach_desc">Факты, которые говорят громче любых обещаний</p>
+                
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-card__num" data-i18n="stat1_num">с 1998</div>
+                        <p class="stat-card__text" data-i18n="stat1_text">года в сетевом предпринимательстве (включая 15+ лет успешного опыта в компании Vision)</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-card__num" data-i18n="stat2_num">1 000 000+ ₸</div>
+                        <p class="stat-card__text" data-i18n="stat2_text">подтвержденный личный ежемесячный чек в партнерстве с Greenway (с 2019 года)</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-card__num">50+</div>
+                        <p class="stat-card__text" data-i18n="stat3_text">активных бизнес-партнеров в первой линии, развивающих свое дело</p>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-card__num">L1 Pro</div>
+                        <p class="stat-card__text" data-i18n="stat4_text">высокая лидерская квалификация и двукратный обладатель награды «Лучший спикер»</p>
+                    </article>
+                    <article class="stat-card stat-card--wide">
+                        <div class="stat-card__num" data-i18n="stat5_num">1 место</div>
+                        <p class="stat-card__text" data-i18n="stat5_text">РЦ Павлодара по всей сети Greenway по количеству гостей на мероприятии Product Day</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="system" class="section bg-light">
-        <div class="container">
-            <h2 class="section__title" data-i18n="sys_title">Почему Elena's Network</h2>
-            <div class="features-list">
-                <div class="feature-item" data-i18n="feat1"><strong>Система обучения:</strong> четкие пошаговые инструкции от первых действий до лидерских квалификаций.</div>
-                <div class="feature-item" data-i18n="feat2"><strong>Еженедельные планерки:</strong> регулярная работа в команде, разбор задач и фокус на личный результат.</div>
-                <div class="feature-item" data-i18n="feat3"><strong>Глубокая экспертиза:</strong> доступ к практическому опыту лидера с почти 30-летним стажем в индустрии.</div>
-                <div class="feature-item" data-i18n="feat4"><strong>Стабильный чек:</strong> фокус на построение надежной структуры и прогнозируемого дохода.</div>
-            </div>
+        </section>
 
-            <h2 id="start" class="section__title" style="margin-top: 60px;" data-i18n="steps_title">4 простых шага для входа в бизнес</h2>
-            <div class="steps-grid">
-                <div class="step">
-                    <span class="step__num">01</span>
-                    <h4 data-i18n="step1_title">Регистрация</h4>
-                    <p data-i18n="step1_text">Бесплатное оформление партнерского соглашения и доступ к платформе.</p>
-                </div>
-                <div class="step">
-                    <span class="step__num">02</span>
-                    <h4 data-i18n="step2_title">Знакомство с наставником</h4>
-                    <p data-i18n="step2_text">Личная встреча с Еленой онлайн или в офисе Павлодара.</p>
-                </div>
-                <div class="step">
-                    <span class="step__num">03</span>
-                    <h4 data-i18n="step3_title">Определение цели</h4>
-                    <p data-i18n="step3_text">Составление индивидуального финансового плана и графика работы.</p>
-                </div>
-                <div class="step">
-                    <span class="step__num">04</span>
-                    <h4 data-i18n="step4_title">Запуск по системе</h4>
-                    <p data-i18n="step4_text">Включение в обучение, планерки и первые командные результаты.</p>
+        <section id="audience" class="section">
+            <div class="container">
+                <h2 class="section__title" data-i18n="aud_title">Кому подойдет работа в команде</h2>
+                <div class="cards-grid">
+                    <article class="card">
+                        <h3 data-i18n="aud1_title">Дополнительный доход</h3>
+                        <p data-i18n="aud1_text">Для тех, кто хочет создать финансовую подушку параллельно с основной работой или декретом, уделяя бизнесу 2–3 часа в день по готовому алгоритму.</p>
+                    </article>
+                    <article class="card">
+                        <h3 data-i18n="aud2_title">Старт в предпринимательстве</h3>
+                        <p data-i18n="aud2_text">Для тех, кто намерен развивать предпринимательскую стезю с нуля без крупных вложений, аренды и рисков при плотной поддержке наставника.</p>
+                    </article>
+                    <article class="card">
+                        <h3 data-i18n="aud3_title">Опытным предпринимателям</h3>
+                        <p data-i18n="aud3_text">Для владельцев бизнеса, которые ищут новые перспективные направления с готовой международной логистикой и эко-продуктом.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="choice" class="section">
-        <div class="container">
-            <h2 class="section__title" data-i18n="choice_title">Выберите свой формат</h2>
-            <p class="section__desc" data-i18n="choice_desc">Начните с того уровня, который комфортен вам прямо сейчас</p>
-            
-            <div class="fork-grid">
-                <div class="fork-card fork-card--partner">
-                    <div>
-                        <span class="fork-tag" data-i18n="partner_tag">Бизнес-направление</span>
-                        <h3 data-i18n="partner_title">Стать бизнес-партнером</h3>
-                        <p data-i18n="partner_text">Построение команды, обучение у Елены Мелиховой, участие в планерках и выход на стабильный растущий доход.</p>
-                    </div>
-                    <div class="btn-group">
-                        <a href="https://wa.me." target="_blank" class="btn btn--primary" data-i18n="btn_wa_partner">Написать в WhatsApp</a>
-                        <a href="https://t.me" target="_blank" class="btn btn--outline" data-i18n="btn_tg_partner">Написать в Telegram</a>
-                    </div>
-                </div>
-                <div class="fork-card">
-                    <div>
-                        <span class="fork-tag" data-i18n="client_tag">Эко-продукция</span>
-                        <h3 data-i18n="client_title">Стать клиентом</h3>
-                        <p data-i18n="client_text">Знакомство с продукцией Greenway для дома, здоровья и красоты. Помощь в подборе средств и оформление заказов.</p>
-                    </div>
-                    <div class="btn-group">
-                        <a href="#ecomarket-link" target="_blank" class="btn btn--primary" data-i18n="btn_eco_market">Чат WhatsApp Eco Market</a>
-                        <a href="https://wa.me." target="_blank" class="btn btn--outline" data-i18n="btn_wa_client">Консультация в WhatsApp</a>
-                    </div>
+        <section id="system" class="section bg-light">
+            <div class="container">
+                <h2 class="section__title" data-i18n="sys_title">Почему Elena's Network</h2>
+                <ul class="features-list">
+                    <li class="feature-item" data-i18n="feat1"><strong>Система обучения:</strong> четкие пошаговые инструкции от первых действий до лидерских квалификаций.</li>
+                    <li class="feature-item" data-i18n="feat2"><strong>Еженедельные планерки:</strong> регулярная работа в команде, разбор задач и фокус на личный результат.</li>
+                    <li class="feature-item" data-i18n="feat3"><strong>Глубокая экспертиза:</strong> доступ к практическому опыту лидера с почти 30-летним стажем в индустрии.</li>
+                    <li class="feature-item" data-i18n="feat4"><strong>Стабильный чек:</strong> фокус на построение надежной структуры и прогнозируемого дохода.</li>
+                </ul>
+
+                <div id="start" class="section__subsection">
+                    <h2 class="section__title" data-i18n="steps_title">4 простых шага для входа в бизнес</h2>
+                    <ol class="steps-grid">
+                        <li class="step">
+                            <span class="step__num">01</span>
+                            <h3 data-i18n="step1_title">Регистрация</h3>
+                            <p data-i18n="step1_text">Бесплатное оформление партнерского соглашения и доступ к платформе.</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__num">02</span>
+                            <h3 data-i18n="step2_title">Знакомство с наставником</h3>
+                            <p data-i18n="step2_text">Личная встреча с Еленой онлайн или в офисе Павлодара.</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__num">03</span>
+                            <h3 data-i18n="step3_title">Определение цели</h3>
+                            <p data-i18n="step3_text">Составление индивидуального финансового плана и графика работы.</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__num">04</span>
+                            <h3 data-i18n="step4_title">Запуск по системе</h3>
+                            <p data-i18n="step4_text">Включение в обучение, планерки и первые командные результаты.</p>
+                        </li>
+                    </ol>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="choice" class="section">
+            <div class="container">
+                <h2 class="section__title" data-i18n="choice_title">Выберите свой формат</h2>
+                <p class="section__desc" data-i18n="choice_desc">Начните с того уровня, который комфортен вам прямо сейчас</p>
+                
+                <div class="fork-grid">
+                    <article class="fork-card fork-card--partner">
+                        <div>
+                            <span class="fork-tag" data-i18n="partner_tag">Бизнес-направление</span>
+                            <h3 data-i18n="partner_title">Стать бизнес-партнером</h3>
+                            <p data-i18n="partner_text">Построение команды, обучение у Елены Мелиховой, участие в планерках и выход на стабильный растущий доход.</p>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-i18n="btn_wa_partner">Написать в WhatsApp</a>
+                            <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="btn btn--outline" data-i18n="btn_tg_partner">Написать в Telegram</a>
+                        </div>
+                    </article>
+
+                    <article class="fork-card">
+                        <div>
+                            <span class="fork-tag" data-i18n="client_tag">Эко-продукция</span>
+                            <h3 data-i18n="client_title">Стать клиентом</h3>
+                            <p data-i18n="client_text">Знакомство с продукцией Greenway для дома, здоровья и красоты. Помощь в подборе средств и оформление заказов.</p>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://greenwayglobal.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-i18n="btn_eco_market">Чат WhatsApp Eco Market</a>
+                            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn btn--outline" data-i18n="btn_wa_client">Консультация в WhatsApp</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container footer__inner">
@@ -174,15 +183,15 @@
                 <p data-i18n="footer_copy">© 2026 Elena's Network. Независимый партнер Greenway Global.</p>
                 <p data-i18n="footer_loc">Павлодар, Казахстан</p>
             </div>
-            <div class="footer__links">
-                <a href="https://instagram.com" target="_blank">Instagram</a>
-                <a href="#facebook-link" target="_blank">Facebook</a>
-                <a href="https://t.me" target="_blank">Telegram</a>
-                <a href="#ecomarket-link" target="_blank">Eco Market</a>
-            </div>
+            <nav class="footer__links" aria-label="Ссылки в подвале">
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://t.me/" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="https://greenwayglobal.com/" target="_blank" rel="noopener noreferrer">Eco Market</a>
+            </nav>
         </div>
     </footer>
 
-    <script src="src/main.js"></script>
+    <script src="src/main.js" defer></script>
 </body>
 </html>
