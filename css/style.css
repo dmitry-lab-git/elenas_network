@@ -583,35 +583,36 @@ section[id], div[id] {
     gap: 12px;
 }
 
-/* Плавающая кнопка WhatsApp */
+/* Универсальная плавающая кнопка WhatsApp (согласована со стандартами UI/UX) */
 .floating-cta {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
+    right: 28px;
+    bottom: 28px;
     z-index: 950;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background-color: #25D366;
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
-    padding: 14px 22px;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    padding: 14px 24px;
     border-radius: 50px;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .floating-cta:hover {
     background-color: #22bf5b;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5);
 }
 
 .floating-cta svg {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
     fill: currentColor;
 }
@@ -878,9 +879,10 @@ section[id], div[id] {
     }
 
     .floating-cta {
-        right: 16px;
-        bottom: 16px;
-        padding: 12px 18px;
+        right: 18px;
+        bottom: 18px;
+        padding: 12px 20px;
+        font-size: 0.92rem;
     }
 }
 
@@ -888,7 +890,7 @@ section[id], div[id] {
 .section-anchor {
     display: block;
     position: relative;
-    top: -85px; /* Высота шапки + отступ */
+    top: -85px;
     visibility: hidden;
     pointer-events: none;
 }
