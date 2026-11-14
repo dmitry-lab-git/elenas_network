@@ -33,7 +33,7 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Индивидуальная точная настройка отступов под фиксированную шапку для каждого якоря */
+/* Точная настройка отступов под фиксированную шапку */
 #achievements {
     scroll-margin-top: 90px;
 }
@@ -50,9 +50,8 @@ a:focus-visible, button:focus-visible {
     scroll-margin-top: 90px;
 }
 
-/* Увеличенный отступ для нижнего блока, чтобы заголовок не прилипал к шапке */
 #choice {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 90px;
 }
 
 .container {
@@ -450,6 +449,11 @@ a:focus-visible, button:focus-visible {
     padding: 80px 0;
 }
 
+/* Гарантируем свободное пространство под последней секцией для идеального скролла */
+#choice {
+    padding-bottom: 180px;
+}
+
 .bg-light {
     background: var(--bg-light);
 }
@@ -749,7 +753,6 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 768px) {
-    /* Точные отступы для мобильных устройств */
     #achievements {
         scroll-margin-top: 75px;
     }
@@ -767,7 +770,8 @@ a:focus-visible, button:focus-visible {
     }
 
     #choice {
-        scroll-margin-top: 95px;
+        scroll-margin-top: 75px;
+        padding-bottom: 140px;
     }
 
     .header {
