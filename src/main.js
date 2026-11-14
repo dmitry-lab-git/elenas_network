@@ -129,7 +129,6 @@ function applyTranslations(lang) {
     });
 }
 
-// Замените блок скролла по якорям в main.js на этот:
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -138,12 +137,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             e.preventDefault();
+            
+            // 1. Динамически получаем реальную высоту шапки в текущий момент
             const header = document.getElementById('siteHeader');
             const headerHeight = header ? header.offsetHeight : 70;
             
-            // Получаем точную позицию элемента относительно документа
+            // 2. Вычисляем точное положение элемента на странице
             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerHeight - 10;
+            
+            // 3. Отнимаем высоту шапки + небольшой запас (например, 15px для воздуха)
+            const offsetPosition = elementPosition - headerHeight - 15;
 
             window.scrollTo({
                 top: offsetPosition,

@@ -33,13 +33,13 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Единые точные отступы для абсолютно всех заголовков под фиксированную шапку на десктопе */
+/* Базовый небольшой отступ, чтобы якоря не прилипали вплотную, если JS отключен */
 #achievements,
 #audience,
 #system,
 #start,
 #choice {
-    scroll-margin-top: 90px;
+    scroll-margin-top: 30px;
 }
 
 .container {
@@ -682,7 +682,6 @@ a:focus-visible, button:focus-visible {
     border: 1px solid var(--border);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     transition: all 0.2s;
-    white-space: nowrap;
 }
 
 .footer__links a:hover {
@@ -736,13 +735,12 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 768px) {
-    /* Единые точные отступы для всех заголовков на мобильных устройствах */
     #achievements,
     #audience,
     #system,
     #start,
     #choice {
-        scroll-margin-top: 75px;
+        scroll-margin-top: 20px;
     }
 
     .header {
@@ -831,7 +829,7 @@ a:focus-visible, button:focus-visible {
     }
 
     .section__title {
-        font-size: 1.5rem;
+fullName        font-size: 1.5rem;
         text-align: left;
         margin-bottom: 8px;
     }
