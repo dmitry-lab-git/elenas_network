@@ -129,34 +129,30 @@ function applyTranslations(lang) {
     });
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#' || targetId.length < 2) return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Динамический скролл по якорным ссылкам
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId.length < 2) return;
             
-            // 1. Динамически получаем реальную высоту шапки в текущий момент
-            const header = document.getElementById('siteHeader');
-            const headerHeight = header ? header.offsetHeight : 70;
-            
-            // 2. Вычисляем точное положение элемента на странице
-            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            
-            // 3. Отнимаем высоту шапки + небольшой запас (например, 15px для воздуха)
-            const offsetPosition = elementPosition - headerHeight - 15;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const header = document.getElementById('siteHeader');
+                const headerHeight = header ? header.offsetHeight : 70;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight - 15;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
 
-    // Логика мобильного бургер-меню
+    // 2. Логика мобильного бургер-меню
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const mobileLinks = document.querySelectorAll('.mobile-nav__link');
@@ -186,7 +182,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     }
 
-    // Логика выпадающего меню языков
+    // 3. Логика выпадающего меню языков
     const globeBtn = document.getElementById('globeBtn');
     const langMenu = document.getElementById('langMenu');
     const currentLangCode = document.getElementById('currentLangCode');
@@ -230,7 +226,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     }
 
-    // Подсветка активного пункта меню при скролле
+    // 4. Подсветка активного пункта меню при скролле
     const anchors = ['achievements', 'audience', 'system', 'start'].map(id => document.getElementById(id));
     const allNavLinks = document.querySelectorAll('.nav__link, .mobile-nav__link');
 
