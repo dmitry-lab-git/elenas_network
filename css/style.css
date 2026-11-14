@@ -108,7 +108,7 @@ section[id], div[id] {
     border-radius: 2px;
 }
 
-/* Кнопка «Связаться» по центру (растянута на свободной ширине) */
+/* Кнопка «Связаться» по центру на десктопе */
 .header__center-cta {
     flex: 1;
     display: flex;
@@ -128,7 +128,7 @@ section[id], div[id] {
     flex-shrink: 0;
 }
 
-/* Значок глобуса и выпадающее меню */
+/* Глобус и меню языка */
 .lang-dropdown {
     position: relative;
 }
@@ -200,7 +200,7 @@ section[id], div[id] {
     font-weight: 600;
 }
 
-/* Бургер-меню */
+/* Бургер */
 .burger-btn {
     display: none;
     flex-direction: column;
@@ -237,11 +237,11 @@ section[id], div[id] {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Выдвижное мобильное меню (убран лишний бордер, создававший двойную линию) */
+/* Выдвижное мобильное меню */
 .mobile-drawer {
     display: none;
     background: var(--bg-white);
-    border-top: none; 
+    border-top: none;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     max-height: 0;
@@ -249,7 +249,7 @@ section[id], div[id] {
 }
 
 .mobile-drawer.is-open {
-    max-height: 300px;
+    max-height: 350px;
     padding: 12px 0 16px;
     border-top: 1px solid var(--border);
 }
@@ -278,7 +278,19 @@ section[id], div[id] {
     font-weight: 600;
 }
 
-/* ================= BUTTONS ================= */
+.mobile-nav__link--cta {
+    margin-top: 6px;
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+}
+.mobile-nav__link--cta:hover {
+    background: var(--primary-dark);
+    color: #fff;
+}
+
+/* Кнопки */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -325,7 +337,7 @@ section[id], div[id] {
     padding-left: 0;
 }
 
-/* ================= HERO ================= */
+/* Hero */
 .hero {
     padding: 60px 0;
 }
@@ -415,7 +427,7 @@ section[id], div[id] {
     display: block;
 }
 
-/* ================= SECTIONS & CARDS ================= */
+/* Секции */
 .section {
     padding: 80px 0;
 }
@@ -526,7 +538,6 @@ section[id], div[id] {
     margin-bottom: 8px;
 }
 
-/* ================= CHOICE / FORK ================= */
 .fork-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -571,7 +582,7 @@ section[id], div[id] {
     gap: 12px;
 }
 
-/* ================= FLOATING CTA BUTTON ================= */
+/* Плавающая кнопка */
 .floating-cta {
     position: fixed;
     right: 20px;
@@ -596,7 +607,7 @@ section[id], div[id] {
     box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
 }
 
-/* ================= FOOTER ================= */
+/* Футер */
 .footer {
     padding: 44px 0 28px;
     border-top: 1px solid var(--border);
@@ -674,7 +685,7 @@ section[id], div[id] {
     letter-spacing: 0.02em;
 }
 
-/* ================= АДАПТИВ ================= */
+/* Адаптив */
 @media (max-width: 1024px) {
     .nav--desktop {
         display: none;
@@ -686,6 +697,11 @@ section[id], div[id] {
 
     .mobile-drawer {
         display: block;
+    }
+
+    /* На мобильных убираем громоздкую кнопку «Связаться» из шапки, т.к. она дублируется в бургере и плавающей кнопке */
+    .header__center-cta {
+        display: none;
     }
 }
 
@@ -718,15 +734,7 @@ section[id], div[id] {
     }
 
     .logo {
-        font-size: 0.96rem; /* Компактнее, чтобы гарантированно помещаться в ряд */
-    }
-
-    /* Растягиваем кнопку «Связаться» на всю свободную ширину посредине */
-    .btn--stretch {
-        padding: 6px 12px;
-        font-size: 0.82rem;
-        min-height: 36px;
-        max-width: none;
+        font-size: 1.05rem;
     }
 
     .globe-btn {
@@ -871,19 +879,19 @@ section[id], div[id] {
 /* Сверхмалые экраны (320px - 375px) */
 @media (max-width: 380px) {
     .logo {
-        font-size: 0.88rem;
+        font-size: 0.95rem;
     }
 
     .header__inner {
-        gap: 5px;
+        gap: 6px;
     }
 
     .header__right {
-        gap: 5px;
+        gap: 6px;
     }
 
     .globe-btn {
-        padding: 0 5px;
-        font-size: 0.72rem;
+        padding: 0 6px;
+        font-size: 0.75rem;
     }
 }
