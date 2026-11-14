@@ -53,8 +53,9 @@ const translations = {
         client_text: "Знакомство с продукцией Greenway для дома, здоровья и красоты. Помощь в подборе средств и оформление заказов.",
         btn_eco_market: "Чат WhatsApp Eco Market",
         btn_wa_client: "Консультация в WhatsApp",
-        footer_copy: "© 2026 Elena's Network. Независимый партнер Greenway Global.",
-        footer_loc: "Павлодар, Казахстан"
+        footer_partner: "Независимый партнер Greenway Global",
+        footer_copy_bottom: "© 2026 Elena's Network • Павлодар, Казахстан",
+        float_cta: "WhatsApp"
     },
     en: {
         nav_leader: "About Leader",
@@ -110,12 +111,25 @@ const translations = {
         client_text: "Explore Greenway eco-products for home, health, and beauty. Personal product selection and order assistance.",
         btn_eco_market: "WhatsApp Eco Market Chat",
         btn_wa_client: "WhatsApp Consultation",
-        footer_copy: "© 2026 Elena's Network. Independent Partner of Greenway Global.",
-        footer_loc: "Pavlodar, Kazakhstan"
+        footer_partner: "Independent Partner of Greenway Global",
+        footer_copy_bottom: "© 2026 Elena's Network • Pavlodar, Kazakhstan",
+        float_cta: "WhatsApp"
     }
 };
 
+// Функция перевода для вызова извне или внутри скрипта
+function applyTranslations(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Плавный скролл по якорным ссылкам
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -132,20 +146,104 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const langBtns = document.querySelectorAll('.lang-btn');
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang');
-            langBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.documentElement.lang = lang;
+    // 2. Логика мобильного бургер-меню
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav__link');
 
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
+    if (burgerBtn && mobileDrawer) {
+        const toggleMenu = (forceState) => {
+            const isOpen = typeof forceState === 'boolean' 
+                ? forceState 
+                : !mobileDrawer.classList.contains('is-open');
+
+            mobileDrawer.classList.toggle('is-open', isOpen);
+            burgerBtn.classList.toggle('is-open', isOpen);
+            burgerBtn.setAttribute('aria-expanded', String(isOpen));
+            mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+        };
+
+        burgerBtn.addEventListener('click', () => toggleMenu());
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header') && mobileDrawer.classList.contains('is-open')) {
+                toggleMenu(false);
+            }
+        });
+    }
+
+    // 3. Логика выпадающего меню языков (значок глобуса)
+    const globeBtn = document.getElementById('globeBtn');
+    const langMenu = document.getElementById('langMenu');
+    const currentLangCode = document.getElementById('currentLangCode');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    if (globeBtn && langMenu) {
+        const toggleLangMenu = (forceState) => {
+            const isOpen = typeof forceState === 'boolean'
+                ? forceState
+                : !langMenu.classList.contains('is-open');
+
+            langMenu.classList.toggle('is-open', isOpen);
+            globeBtn.setAttribute('aria-expanded', String(isOpen));
+        };
+
+        globeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleLangMenu();
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedLang = option.getAttribute('data-lang');
+
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+
+                if (currentLangCode) {
+                    currentLangCode.textContent = selectedLang.toUpperCase();
                 }
+
+                toggleLangMenu(false);
+                applyTranslations(selectedLang);
             });
         });
-    });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#langDropdown') && langMenu.classList.contains('is-open')) {
+                toggleLangMenu(false);
+            }
+        });
+    }
+
+    // 4. Интерактивная подсветка активного раздела при скролле (ScrollSpy)
+    const sections = document.querySelectorAll('section[id], div[id="start"]');
+    const allNavLinks = document.querySelectorAll('.nav__link, .mobile-nav__link');
+
+    const highlightActiveSection = () => {
+        const scrollPosition = window.scrollY + 140;
+
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        allNavLinks.forEach(link => {
+            link.classList.remove('is-active');
+            if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('is-active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', highlightActiveSection, { passive: true });
+    highlightActiveSection();
 });
