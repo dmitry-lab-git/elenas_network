@@ -50,8 +50,9 @@ a:focus-visible, button:focus-visible {
     scroll-margin-top: 90px;
 }
 
+/* Увеличенный отступ для нижнего блока, чтобы заголовок не прилипал к шапке */
 #choice {
-    scroll-margin-top: 90px;
+    scroll-margin-top: 120px;
 }
 
 .container {
@@ -766,7 +767,7 @@ a:focus-visible, button:focus-visible {
     }
 
     #choice {
-        scroll-margin-top: 75px;
+        scroll-margin-top: 95px;
     }
 
     .header {
