@@ -627,8 +627,10 @@ a:focus-visible, button:focus-visible {
 }
 
 .floating-cta svg {
-    width: 26px;
-    height: 26px;
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px;
+    min-height: 26px;
     flex-shrink: 0;
     fill: currentColor;
 }
@@ -760,6 +762,10 @@ a:focus-visible, button:focus-visible {
     }
 
     #start {
+        scroll-margin-top: 75px;
+    }
+
+    #choice {
         scroll-margin-top: 75px;
     }
 
@@ -907,13 +913,11 @@ a:focus-visible, button:focus-visible {
         text-align: center;
     }
 
-    /* Принудительное увеличение иконки WhatsApp независимо от атрибутов в HTML */
     .floating-cta {
         right: 16px;
         bottom: 16px;
         padding: 10px 18px;
         font-size: 0.92rem;
-        gap: 8px;
     }
 
     .floating-cta svg {
