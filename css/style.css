@@ -448,7 +448,7 @@ section[id], div[id] {
     }
 }
 
-/* Мобильные устройства */
+/* Мобильные устройства (исправления ритма, отступов и футера) */
 @media (max-width: 768px) {
     section[id], div[id] {
         scroll-margin-top: 115px;
@@ -498,13 +498,14 @@ section[id], div[id] {
         color: #fff;
     }
 
+    /* Ритм и отступы Hero */
     .hero {
-        padding: 32px 0 48px;
+        padding: 24px 0 36px;
     }
 
     .hero__grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .hero__image {
@@ -512,34 +513,47 @@ section[id], div[id] {
     }
 
     .hero__photo {
-        max-height: 300px;
+        max-height: 260px;
         object-position: center 20%;
     }
 
     .badge {
-        font-size: 0.78rem;
-        margin-bottom: 12px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        display: inline-block;
     }
 
     .hero h1 {
-        font-size: 1.85rem;
-        margin-bottom: 14px;
+        font-size: 1.75rem;
+        margin-bottom: 12px;
+        line-height: 1.2;
     }
 
     .hero__subtitle {
-        font-size: 1rem;
-        margin-bottom: 24px;
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+        line-height: 1.5;
     }
 
     .hero__actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
-        margin-bottom: 20px;
+        gap: 10px;
+        margin-bottom: 16px;
     }
 
     .hero__actions .btn {
         width: 100%;
+        margin: 0;
+    }
+
+    /* Кнопка "Узнать больше о наставнике" на мобилках приводим к стилю ссылки-действия */
+    .hero__actions .btn--text {
+        text-align: center;
+        padding: 8px 0;
+        min-height: auto;
     }
 
     .hero__socials {
@@ -548,23 +562,32 @@ section[id], div[id] {
         gap: 8px;
     }
 
+    .social-pill {
+        width: 100%;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Единый ритм отступов секций */
     .section {
-        padding: 48px 0;
+        padding: 40px 0;
     }
 
     .section__title {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
         text-align: left;
+        margin-bottom: 8px;
     }
 
     .section__desc {
         text-align: left;
-        margin-bottom: 28px;
-        font-size: 0.95rem;
+        margin-bottom: 24px;
+        font-size: 0.92rem;
     }
 
     .section__subsection {
-        margin-top: 40px;
+        margin-top: 36px;
     }
 
     .stats-grid,
@@ -573,7 +596,7 @@ section[id], div[id] {
     .steps-grid,
     .fork-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
     }
 
     .stat-card--wide {
@@ -584,41 +607,66 @@ section[id], div[id] {
     .card,
     .step,
     .fork-card {
-        padding: 20px;
+        padding: 18px;
     }
 
     .stat-card__num {
-        font-size: 1.65rem;
+        font-size: 1.5rem;
     }
 
+    .fork-card {
+        gap: 20px;
+    }
+
+    .fork-card p {
+        margin-bottom: 16px;
+    }
+
+    /* Исправление футера на мобильных (компактно, без переноса Eco-market) */
     .footer {
-        padding: 28px 0 40px;
+        padding: 24px 0 32px;
     }
 
     .footer__inner {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .footer__info {
+        text-align: left;
     }
 
     .footer__links {
-        flex-wrap: wrap;
-        gap: 12px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 на 2 аккуратные колонки */
+        gap: 10px;
+        width: 100%;
+    }
+
+    .footer__links a {
+        background: var(--bg-light);
+        padding: 8px 12px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 0.85rem;
+        border: 1px solid var(--border);
+        white-space: nowrap; /* Гарантирует, что Eco Market не разорвется в две строки */
     }
 }
 
 /* Сверхмалые экраны (320px - 375px) */
 @media (max-width: 380px) {
     .header__controls {
-        gap: 8px;
+        gap: 6px;
     }
 
     .header__controls .btn--sm {
         padding: 6px 10px;
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     .hero h1 {
-        font-size: 1.65rem;
+        font-size: 1.55rem;
     }
 }
