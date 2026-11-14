@@ -32,6 +32,10 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
+section[id], div[id] {
+    scroll-margin-top: 85px;
+}
+
 .container {
     max-width: 1140px;
     margin: 0 auto;
@@ -107,6 +111,11 @@ a:focus-visible, button:focus-visible {
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.2s;
+    min-height: 32px;
+    min-width: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lang-btn.active {
@@ -115,7 +124,10 @@ a:focus-visible, button:focus-visible {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: 600;
@@ -127,6 +139,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .btn--sm {
+    min-height: 38px;
     padding: 8px 18px;
     font-size: 0.9rem;
 }
@@ -209,7 +222,11 @@ a:focus-visible, button:focus-visible {
 }
 
 .social-pill {
-    padding: 6px 14px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
     border-radius: 20px;
     background: var(--bg-light);
     color: var(--text-main);
@@ -320,7 +337,6 @@ a:focus-visible, button:focus-visible {
     background: var(--bg-white);
     padding: 20px;
     border-radius: var(--radius);
-    border-left: 3px solid var(--primary);
     border: 1px solid var(--border);
     border-left: 3px solid var(--primary);
 }
@@ -416,20 +432,193 @@ a:focus-visible, button:focus-visible {
     color: var(--primary);
 }
 
-@media (max-width: 768px) {
-    .hero__grid, .stats-grid, .cards-grid, .features-list, .steps-grid, .fork-grid {
+/* Планшеты и небольшие ноутбуки */
+@media (max-width: 960px) {
+    .hero__grid {
+        grid-template-columns: 1fr 0.9fr;
+        gap: 32px;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    section[id], div[id] {
+        scroll-margin-top: 115px;
+    }
+
+    .header {
+        padding: 12px 0 0;
+    }
+
+    .header__inner {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav {
+        display: flex;
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        gap: 8px;
+        padding: 8px 0 10px;
+        border-top: 1px solid var(--border);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav a {
+        flex-shrink: 0;
+        padding: 6px 14px;
+        background: var(--bg-light);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: var(--text-main);
+    }
+
+    .nav a:active {
+        background: var(--primary);
+        color: #fff;
+    }
+
+    .hero {
+        padding: 32px 0 48px;
+    }
+
+    .hero__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .hero__image {
+        order: -1;
+    }
+
+    .hero__photo {
+        max-height: 300px;
+        object-position: center 20%;
+    }
+
+    .badge {
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+        margin-bottom: 14px;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+
+    .hero__socials {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+
+    .section__title {
+        font-size: 1.55rem;
+        text-align: left;
+    }
+
+    .section__desc {
+        text-align: left;
+        margin-bottom: 28px;
+        font-size: 0.95rem;
+    }
+
+    .section__subsection {
+        margin-top: 40px;
+    }
+
+    .stats-grid,
+    .cards-grid,
+    .features-list,
+    .steps-grid,
+    .fork-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
     .stat-card--wide {
         grid-column: span 1;
     }
-    .nav {
-        display: none;
+
+    .stat-card,
+    .card,
+    .step,
+    .fork-card {
+        padding: 20px;
     }
+
+    .stat-card__num {
+        font-size: 1.65rem;
+    }
+
+    .footer {
+        padding: 28px 0 40px;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer__links {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+}
+
+/* Сверхмалые экраны (320px - 375px) */
+@media (max-width: 380px) {
+    .header__controls {
+        gap: 8px;
+    }
+
+    .header__controls .btn--sm {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
     .hero h1 {
-        font-size: 2rem;
-    }
-    .hero__photo {
-        max-height: 360px;
+        font-size: 1.65rem;
     }
 }
