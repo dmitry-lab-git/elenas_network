@@ -904,10 +904,18 @@ a:focus-visible, button:focus-visible {
     }
 
     /* Принудительное увеличение иконки WhatsApp независимо от атрибутов в HTML */
+    .floating-cta {
+        right: 16px;
+        bottom: 16px;
+        padding: 10px 18px;
+        font-size: 0.92rem;
+        gap: 8px;
+    }
+
     .floating-cta svg {
-        width: 26px !important;
-        height: 26px !important;
-        min-width: 26px;
-        min-height: 26px;
+        width: 22px !important;
+        height: 22px !important;
+        min-width: 22px;
+        min-height: 22px;
     }
 }
