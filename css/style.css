@@ -33,8 +33,9 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
+/* Единый точный отступ сверху при переходе по якорям */
 section[id], div[id] {
-    scroll-margin-top: 85px;
+    scroll-margin-top: 80px;
 }
 
 .container {
@@ -339,7 +340,7 @@ section[id], div[id] {
 
 /* Hero */
 .hero {
-    padding: 50px 0 60px;
+    padding: 24px 0 50px;
 }
 
 .hero__grid {
@@ -582,7 +583,7 @@ section[id], div[id] {
     gap: 12px;
 }
 
-/* Плавающая кнопка WhatsApp (единый стиль для ПК и мобильных) */
+/* Плавающая кнопка WhatsApp */
 .floating-cta {
     position: fixed;
     right: 24px;
@@ -729,7 +730,7 @@ section[id], div[id] {
 
 @media (max-width: 768px) {
     section[id], div[id] {
-        scroll-margin-top: 76px;
+        scroll-margin-top: 80px;
     }
 
     .header {
@@ -755,7 +756,7 @@ section[id], div[id] {
     }
 
     .hero {
-        padding: 28px 0 36px;
+        padding: 20px 0 32px;
     }
 
     .hero__grid {
@@ -880,25 +881,5 @@ section[id], div[id] {
         right: 16px;
         bottom: 16px;
         padding: 12px 18px;
-    }
-}
-
-/* Сверхмалые экраны (320px - 375px) */
-@media (max-width: 380px) {
-    .logo {
-        font-size: 0.95rem;
-    }
-
-    .header__inner {
-        gap: 6px;
-    }
-
-    .header__right {
-        gap: 6px;
-    }
-
-    .globe-btn {
-        padding: 0 6px;
-        font-size: 0.75rem;
     }
 }

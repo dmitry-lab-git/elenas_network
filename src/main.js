@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         allNavLinks.forEach(link => {
             link.classList.remove('is-active');
-            if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
+            if (currentSectionId && link.getAttribute('href'] === `#${currentSectionId}`) {
                 link.classList.add('is-active');
             }
         });
