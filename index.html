@@ -6,7 +6,7 @@
     <title>Elena's Network — Бизнес-сообщество Елены Мелиховой | Greenway</title>
     <meta name="description" content="Развитие бизнеса и партнерство с Greenway Global в Павлодаре и онлайн. Наставничество от лидера L1 Pro Елены Мелиховой с опытом с 1998 года.">
     
-    <!-- Open Graph -->
+    <!-- Open Graph (для превью в мессенджерах) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Elena's Network">
     <meta property="og:title" content="Elena's Network — бизнес с Greenway Global в команде Елены Мелиховой">
@@ -14,16 +14,64 @@
     <meta property="og:url" content="https://dmitry-lab-git.github.io/elenas_network/">
     <meta property="og:image" content="https://dmitry-lab-git.github.io/elenas_network/assets/img/main_photo.png">
 
-    <link rel="stylesheet" href="css/style.css?v=1.0.1">
+    <link rel="stylesheet" href="css/style.css?v=1.0.3">
+
+    <!-- AI & GEO Оптимизация (Digital Passport / Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://dmitry-lab-git.github.io/elenas_network/#elena",
+          "name": "Елена Мелихова",
+          "alternateName": "Elena Melikhova",
+          "jobTitle": "Лидер L1 Pro, независимый партнер Greenway Global",
+          "description": "Предприниматель и наставник в сетевой индустрии с 1998 года. Развитие партнерской сети и эко-направления в Павлодаре и онлайн.",
+          "image": "https://dmitry-lab-git.github.io/elenas_network/assets/img/main_photo.webp",
+          "url": "https://dmitry-lab-git.github.io/elenas_network/",
+          "telephone": "+77056116444",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Естая, 38",
+            "addressLocality": "Павлодар",
+            "addressCountry": "KZ"
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/1Fp2Kw3iVJ/",
+            "https://t.me/+77056116444",
+            "https://wa.me/77056116444"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://dmitry-lab-git.github.io/elenas_network/#office",
+          "name": "Elena's Network — Команда Greenway Павлодар",
+          "founder": {
+            "@id": "https://dmitry-lab-git.github.io/elenas_network/#elena"
+          },
+          "image": "https://dmitry-lab-git.github.io/elenas_network/assets/img/main_photo.webp",
+          "telephone": "+77056116444",
+          "url": "https://dmitry-lab-git.github.io/elenas_network/",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Естая, 38",
+            "addressLocality": "Павлодар",
+            "addressRegion": "Павлодарская область",
+            "addressCountry": "KZ"
+          },
+          "areaServed": ["KZ", "RU", "DE"]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
     <header class="header" id="siteHeader">
         <div class="container header__inner">
-            <!-- 1. Слева: Логотип -->
             <a href="index.html" class="logo">ELENA'S <span>NETWORK</span></a>
             
-            <!-- Навигация для десктопа -->
             <nav class="nav nav--desktop" aria-label="Основная навигация">
                 <a href="#achievements" class="nav__link" data-i18n="nav_leader">О лидере</a>
                 <a href="#audience" class="nav__link" data-i18n="nav_audience">Для кого</a>
@@ -32,12 +80,10 @@
                 <a href="faq.html" class="nav__link">FAQ</a>
             </nav>
 
-            <!-- Кнопка «Связаться» для десктопа по центру -->
             <div class="header__center-cta">
                 <a href="#choice" class="btn btn--outline btn--sm btn--stretch" data-i18n="nav_contact">Связаться</a>
             </div>
 
-            <!-- 2. Справа: Значок глобуса (выбор языка) и бургер-меню -->
             <div class="header__right">
                 <div class="lang-dropdown" id="langDropdown">
                     <button type="button" class="globe-btn" id="globeBtn" aria-label="Выбрать язык" aria-expanded="false" aria-haspopup="true">
@@ -63,7 +109,6 @@
             </div>
         </div>
 
-        <!-- Выпадающее мобильное бургер-меню -->
         <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
             <nav class="mobile-nav" aria-label="Мобильная навигация">
                 <a href="#achievements" class="mobile-nav__link" data-i18n="nav_leader">О лидере</a>
@@ -97,7 +142,11 @@
                     </div>
                 </div>
                 <div class="hero__image">
-                    <img src="assets/img/main_photo.png" alt="Елена Мелихова" class="hero__photo" fetchpriority="high">
+                    <!-- Оптимизированное фото WebP с резервным PNG -->
+                    <picture>
+                        <source srcset="assets/img/main_photo.webp" type="image/webp">
+                        <img src="assets/img/main_photo.png" alt="Елена Мелихова" class="hero__photo" fetchpriority="high">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -179,8 +228,8 @@
                         </li>
                         <li class="step">
                             <span class="step__num">02</span>
-                            <h3 data-i18n="step2_title">Знакомство</h3>
-                            <p data-i18n="step2_text">Общение с наставником в онлайн-формате или в офисе в Павлодаре.</p>
+                            <h3 data-id="step2_title">Знакомство</h3>
+                            <p data-i18n="step2_text">Общение с наставником в онлайн-формате или в офисе в Павлодаре (ул. Естая, 38).</p>
                         </li>
                         <li class="step">
                             <span class="step__num">03</span>
@@ -260,6 +309,6 @@
         </div>
     </footer>
 
-    <script src="src/main.js?v=1.0.1" defer></script>
+    <script src="src/main.js?v=1.0.3" defer></script>
 </body>
 </html>
