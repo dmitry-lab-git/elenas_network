@@ -73,7 +73,7 @@ const translations = {
         hero_cta_sec: "Learn more about the mentor →",
         ach_title: "Experience & Results in Numbers",
         ach_desc: "Facts reflecting practical mentorship experience",
-        stat1_num: "Since 1998",
+        stat1_num: "Since 1998 year",
         stat1_text: "in the network industry (including 12 years of experience with Vision)",
         stat2_num: "1,000,000 ₸",
         stat2_text: "verified personal monthly income figure in partnership with Greenway",
