@@ -81,7 +81,7 @@ const translations = {
         stat4_num: "L1 Pro",
         stat4_text: "leadership qualification and two-time Best Speaker award winner",
         stat6_num: "3 Countries",
-        stat6_text: "Active business partners and clients: Kazakhstan, Россия, Германия",
+        stat6_text: "Active business partners and clients: Kazakhstan, Russia, Germany",
         stat5_num: "1st Place",
         stat5_text: "Pavlodar Regional Center across the Greenway network for Product Day attendance",
         aud_title: "Participation Formats",
@@ -118,7 +118,7 @@ const translations = {
         btn_eco_market: "WhatsApp Eco Market Chat",
         btn_wa_client: "WhatsApp Consultation",
         footer_partner: "Independent Partner of Greenway Global",
-        footer_copy_bottom: "© 2026 Elena's Network • Павлодар, Казахстан",
+        footer_copy_bottom: "© 2026 Elena's Network • Pavlodar, Kazakhstan",
         float_cta: "WhatsApp"
     }
 };
