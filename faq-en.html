@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WV596D42"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequently Asked Questions (FAQ) — Elena's Network | Greenway Pavlodar</title>
@@ -35,7 +35,7 @@
           "name": "How do I start collaborating with Elena Melikhova's team in Pavlodar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Simply message us on WhatsApp or Telegram for an initial introduction. We will discuss your goals—additional income, starting a business, or eco-products—and choose a comfortable starting format. Registration in the Greenway Global partner network is free."
+            "text": "Simply message us on WhatsApp or Telegram for an initial introduction. We will discuss your goals—whether you are looking for additional income, starting your own business, or purchasing eco-products for personal use—and choose a comfortable starting format. Registration in the Greenway Global partner network is free with full mentor support."
           }
         },
         {
@@ -43,7 +43,7 @@
           "name": "Do I need to be located in Pavlodar to grow in the team?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. While Pavlodar hosts our Regional Center and live Product Day events, the entire training system and team briefings are structured online for partners across Kazakhstan, Russia, and Germany."
+            "text": "No. While Pavlodar hosts our Regional Center at 38 Yestay Street and live Product Day events, the entire training system, team briefings, and mentor support are structured online for partners across Kazakhstan, Russia, and Germany."
           }
         },
         {
@@ -59,7 +59,7 @@
           "name": "What is the difference between a Greenway client and a business partner?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Clients get access to the Greenway Global eco-product catalog, product consultations, and our private Eco Market chat. Business partners additionally unlock team training, the compensation plan, and network-building tools."
+            "text": "Clients get access to the Greenway Global eco-product catalog, personal product selection consultations, and our private Eco Market chat. Business partners additionally unlock team training, the company's compensation plan, and tools for building your own partner network."
           }
         },
         {
@@ -67,59 +67,10 @@
           "name": "How much time do I need to dedicate at the beginning?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The schedule is flexible. Most team members start with 1–2 hours a day, combining Greenway with their primary job or studies, and gradually scale up as their results grow."
+            "text": "The schedule is flexible and depends on your goals. Most team members start with 1–2 hours a day, combining Greenway with their primary job, studies, or family commitments, and gradually scale up as their results grow."
           }
         }
       ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-        "@type": "Question",
-        "name": "How to start cooperation with Elena Melikhova's team in Pavlodar?",
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Simply write on WhatsApp or Telegram for an initial introduction. We will discuss your goals and choose a comfortable format to start. Registration in the Greenway Global partner network is free."
-        }
-        },
-        {
-        "@type": "Question",
-        "name": "Is it mandatory to be located in Pavlodar to work?",
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. The Regional Center (RC) is located in Pavlodar at 38 Yestay Street, but the training system and team meetings are organized online."
-        }
-        },
-        {
-        "@type": "Question",
-        "name": "Do I need prior experience in network business or sales?",
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No prior experience is required. Elena's Network provides a step-by-step onboarding system and mentor support."
-        }
-        },
-        {
-        "@type": "Question",
-        "name": "What is the difference between a customer and a business partner in Greenway?",
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A customer gets access to eco-products and the Eco Market chat. A business partner gains access to the compensation plan, training, and network-building tools."
-        }
-        },
-        {
-        "@type": "Question",
-        "name": "How much time should I dedicate at the start?",
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The schedule is flexible. Most partners start with 1–2 hours a day, combining it with their main occupation."
-        }
-        }
-    ]
     }
     </script>
 </head>
@@ -143,15 +94,21 @@
             </div>
 
             <div class="header__right">
-                <!-- Переключатель обратно на русскую версию -->
-                <a href="faq.html" class="globe-btn" aria-label="Перейти на русский">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                    <span class="globe-btn__code">RU</span>
-                </a>
+                <!-- Dropdown menu for language switching (only RU) -->
+                <div class="lang-dropdown" id="langDropdown">
+                    <button type="button" class="globe-btn" id="globeBtn" aria-label="Select language" aria-expanded="false" aria-haspopup="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span class="globe-btn__code" id="currentLangCode">EN</span>
+                    </button>
+
+                    <div class="lang-menu" id="langMenu" role="menu">
+                        <a href="faq.html" class="lang-option" role="menuitem">Русский (RU)</a>
+                    </div>
+                </div>
 
                 <button type="button" class="burger-btn" id="burgerBtn" aria-label="Open Menu" aria-expanded="false" aria-controls="mobileDrawer">
                     <span></span>
@@ -199,7 +156,7 @@
                             <span style="font-size: 1.3rem; color: var(--accent, #4CAF50); margin-left: 12px;">+</span>
                         </summary>
                         <p style="margin-top: 12px; color: var(--text-muted, #555); line-height: 1.6;">
-                            No, geography is not a limitation. Pavlodar hosts our Regional Center (RC), live meetings, presentations, and Product Day events. At the same time, the entire training system, team briefings, and mentor support are structured online—partners from various cities across Kazakhstan, Russia, and Germany are already actively growing in our team.
+                            No, geography is not a limitation. Pavlodar hosts our Regional Center at 38 Yestay Street, live meetings, presentations, and Product Day events. At the same time, the entire training system, team briefings, and mentor support are structured online—partners from various cities across Kazakhstan, Russia, and Germany are already actively growing in our team.
                         </p>
                     </details>
 
