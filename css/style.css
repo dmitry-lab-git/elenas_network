@@ -459,7 +459,7 @@ a:focus-visible, button:focus-visible {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -477,7 +477,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .stat-card--wide {
-    grid-column: span 2;
+    grid-column: span 3;
     border-left: 4px solid var(--accent);
 }
 
@@ -716,6 +716,14 @@ a:focus-visible, button:focus-visible {
 
     .header__center-cta {
         display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-card--wide {
+        grid-column: span 2;
     }
 }
 

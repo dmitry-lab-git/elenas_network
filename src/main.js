@@ -12,13 +12,15 @@ const translations = {
         hero_cta_sec: "Узнать больше о наставнике →",
         ach_title: "Опыт и результаты в цифрах",
         ach_desc: "Факты, отражающие практический опыт наставника",
-        stat1_num: "с 1998",
-        stat1_text: "года в сфере сетевой индустрии (включая 15-летний опыт работы в компании Vision)",
+        stat1_num: "с 1998 года",
+        stat1_text: "в сфере сетевой индустрии (включая 15-летний опыт работы в компании Vision)",
         stat2_num: "1 000 000 ₸",
         stat2_text: "личный подтвержденный показатель месячного чека в партнерстве с Greenway",
         stat3_text: "активных бизнес-партнеров в первой линии",
         stat4_num: "L1 Pro",
         stat4_text: "лидерская квалификация и двукратный обладатель награды «Лучший спикер»",
+        stat6_num: "KZ • RU • DE",
+        stat6_text: "География действующих бизнес-партнеров команды: Казахстан, Россия, Германия",
         stat5_num: "1 место",
         stat5_text: "РЦ Павлодара по сети Greenway по количеству участников мероприятия Product Day",
         aud_title: "Форматы участия",
@@ -78,6 +80,8 @@ const translations = {
         stat3_text: "active first-line business partners",
         stat4_num: "L1 Pro",
         stat4_text: "leadership qualification and two-time Best Speaker award winner",
+        stat6_num: "KZ • RU • DE",
+        stat6_text: "Geography of active team business partners: Kazakhstan, Russia, Germany",
         stat5_num: "1st Place",
         stat5_text: "Pavlodar Regional Center across the Greenway network for Product Day attendance",
         aud_title: "Participation Formats",
@@ -242,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         allNavLinks.forEach(link => {
             link.classList.remove('is-active');
-            if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
+            if (currentSectionId && link.getAttribute('href'] === `#${currentSectionId}`) {
                 link.classList.add('is-active');
             }
         });
