@@ -137,7 +137,6 @@ function applyTranslations(lang) {
         console.error("Translation error:", err);
     }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
     try {
         // 1. Динамический скролл по якорным ссылкам
@@ -227,6 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     toggleLangMenu(false);
                     applyTranslations(selectedLang);
+
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'change_language', {
+                            language: selectedLang,
+                            page_path: window.location.pathname
+                        });
+                    }
                 });
             });
 
@@ -265,6 +271,36 @@ document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('scroll', highlightActiveSection, { passive: true });
             highlightActiveSection();
         }
+
+        // 5. Отслеживание кликов по мессенджерам и соцсетям в Google Analytics
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function () {
+                const url = this.href.toLowerCase();
+                let eventName = null;
+
+                if (url.includes('wa.me') || url.includes('whatsapp.com')) {
+                    eventName = 'click_whatsapp';
+                } else if (url.includes('t.me') || url.includes('telegram.me')) {
+                    eventName = 'click_telegram';
+                } else if (url.includes('instagram.com')) {
+                    eventName = 'click_instagram';
+                } else if (url.includes('facebook.com') || url.includes('fb.com')) {
+                    eventName = 'click_facebook';
+                }
+
+                if (eventName && typeof gtag === 'function') {
+                    const i18nEl = this.querySelector('[data-i18n]') || this;
+                    const buttonRole = i18nEl.getAttribute('data-i18n') || 'footer_or_other';
+
+                    gtag('event', eventName, {
+                        button_role: buttonRole,
+                        link_text: this.innerText.trim() || 'icon',
+                        link_url: this.href,
+                        page_path: window.location.pathname
+                    });
+                }
+            });
+        });
 
     } catch (error) {
         console.error("Initialization error in main.js:", error);
