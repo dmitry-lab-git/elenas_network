@@ -33,7 +33,6 @@ a:focus-visible, button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Базовый небольшой отступ, чтобы якоря не прилипали вплотную, если JS отключен */
 #achievements,
 #audience,
 #system,
@@ -113,7 +112,6 @@ a:focus-visible, button:focus-visible {
     border-radius: 2px;
 }
 
-/* Кнопка «Связаться» по центру на десктопе */
 .header__center-cta {
     flex: 1;
     display: flex;
@@ -133,7 +131,6 @@ a:focus-visible, button:focus-visible {
     flex-shrink: 0;
 }
 
-/* Глобус и меню языка */
 .lang-dropdown {
     position: relative;
 }
@@ -205,7 +202,6 @@ a:focus-visible, button:focus-visible {
     font-weight: 600;
 }
 
-/* Бургер */
 .burger-btn {
     display: none;
     flex-direction: column;
@@ -242,7 +238,6 @@ a:focus-visible, button:focus-visible {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Выдвижное мобильное меню */
 .mobile-drawer {
     display: none;
     background: var(--bg-white);
@@ -295,7 +290,6 @@ a:focus-visible, button:focus-visible {
     color: #fff;
 }
 
-/* Кнопки */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -342,7 +336,6 @@ a:focus-visible, button:focus-visible {
     padding-left: 0;
 }
 
-/* Hero */
 .hero {
     padding: 24px 0 50px;
 }
@@ -432,7 +425,6 @@ a:focus-visible, button:focus-visible {
     display: block;
 }
 
-/* Секции */
 .section {
     padding: 80px 0;
 }
@@ -474,6 +466,12 @@ a:focus-visible, button:focus-visible {
 .stat-card:hover, .card:hover, .step:hover, .fork-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(21, 96, 62, 0.06);
+}
+
+/* Акцентное оформление карточки с географией */
+.stat-card--accent {
+    border-left: 4px solid var(--primary);
+    background: linear-gradient(135deg, #ffffff 0%, #f9fcfa 100%);
 }
 
 .stat-card--wide {
@@ -587,7 +585,6 @@ a:focus-visible, button:focus-visible {
     gap: 12px;
 }
 
-/* Каноничный и гармоничный вид плавающей кнопки WhatsApp */
 .floating-cta {
     position: fixed;
     right: 28px;
@@ -623,7 +620,6 @@ a:focus-visible, button:focus-visible {
     fill: currentColor;
 }
 
-/* Футер */
 .footer {
     padding: 44px 0 28px;
     border-top: 1px solid var(--border);
