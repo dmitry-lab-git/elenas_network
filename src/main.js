@@ -81,7 +81,7 @@ const translations = {
         stat4_num: "L1 Pro",
         stat4_text: "leadership qualification and two-time Best Speaker award winner",
         stat6_num: "3 Countries",
-        stat6_text: "Active business partners and clients: Kazakhstan, Russia, Germany",
+        stat6_text: "Active business partners and clients: Kazakhstan, Россия, Германия",
         stat5_num: "1st Place",
         stat5_text: "Pavlodar Regional Center across the Greenway network for Product Day attendance",
         aud_title: "Participation Formats",
@@ -113,7 +113,7 @@ const translations = {
         btn_wa_partner: "Message on WhatsApp",
         btn_tg_partner: "Message on Telegram",
         client_tag: "Eco Products",
-        client_title: "Become a Client",
+        client_title: "Become Client",
         client_text: "Purchasing Greenway products, assortment consultations, and order processing.",
         btn_eco_market: "WhatsApp Eco Market Chat",
         btn_wa_client: "WhatsApp Consultation",
@@ -124,134 +124,149 @@ const translations = {
 };
 
 function applyTranslations(lang) {
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-        }
-    });
+    try {
+        if (!translations[lang]) return;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key] !== undefined) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+    } catch (err) {
+        console.error("Translation error:", err);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Динамический скролл по якорным ссылкам с учетом высоты шапки
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#' || targetId.length < 2) return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const header = document.getElementById('siteHeader');
-                const headerHeight = header ? header.offsetHeight : 70;
-                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerHeight - 15;
+    try {
+        // 1. Динамический скролл по якорным ссылкам
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || targetId.length < 2) return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const header = document.getElementById('siteHeader');
+                    const headerHeight = header ? header.offsetHeight : 70;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight - 15;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // 2. Логика мобильного бургер-меню
-    const burgerBtn = document.getElementById('burgerBtn');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const mobileLinks = document.querySelectorAll('.mobile-nav__link');
-
-    if (burgerBtn && mobileDrawer) {
-        const toggleMenu = (forceState) => {
-            const isOpen = typeof forceState === 'boolean' 
-                ? forceState 
-                : !mobileDrawer.classList.contains('is-open');
-
-            mobileDrawer.classList.toggle('is-open', isOpen);
-            burgerBtn.classList.toggle('is-open', isOpen);
-            burgerBtn.setAttribute('aria-expanded', String(isOpen));
-            mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
-        };
-
-        burgerBtn.addEventListener('click', () => toggleMenu());
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.header') && mobileDrawer.classList.contains('is-open')) {
-                toggleMenu(false);
-            }
-        });
-    }
-
-    // 3. Логика выпадающего меню языков
-    const globeBtn = document.getElementById('globeBtn');
-    const langMenu = document.getElementById('langMenu');
-    const currentLangCode = document.getElementById('currentLangCode');
-    const langOptions = document.querySelectorAll('.lang-option');
-
-    if (globeBtn && langMenu) {
-        const toggleLangMenu = (forceState) => {
-            const isOpen = typeof forceState === 'boolean'
-                ? forceState
-                : !langMenu.classList.contains('is-open');
-
-            langMenu.classList.toggle('is-open', isOpen);
-            globeBtn.setAttribute('aria-expanded', String(isOpen));
-        };
-
-        globeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleLangMenu();
-        });
-
-        langOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const selectedLang = option.getAttribute('data-lang');
-
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-
-                if (currentLangCode) {
-                    currentLangCode.textContent = selectedLang.toUpperCase();
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
-
-                toggleLangMenu(false);
-                applyTranslations(selectedLang);
             });
         });
 
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('#langDropdown') && langMenu.classList.contains('is-open')) {
-                toggleLangMenu(false);
-            }
-        });
+        // 2. Логика мобильного бургер-меню
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileLinks = document.querySelectorAll('.mobile-nav__link');
+
+        if (burgerBtn && mobileDrawer) {
+            const toggleMenu = (forceState) => {
+                const isOpen = typeof forceState === 'boolean' 
+                    ? forceState 
+                    : !mobileDrawer.classList.contains('is-open');
+
+                mobileDrawer.classList.toggle('is-open', isOpen);
+                burgerBtn.classList.toggle('is-open', isOpen);
+                burgerBtn.setAttribute('aria-expanded', String(isOpen));
+                mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+            };
+
+            burgerBtn.addEventListener('click', () => toggleMenu());
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.header') && mobileDrawer.classList.contains('is-open')) {
+                    toggleMenu(false);
+                }
+            });
+        }
+
+        // 3. Логика выпадающего меню языков
+        const globeBtn = document.getElementById('globeBtn');
+        const langMenu = document.getElementById('langMenu');
+        const currentLangCode = document.getElementById('currentLangCode');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        if (globeBtn && langMenu) {
+            const toggleLangMenu = (forceState) => {
+                const isOpen = typeof forceState === 'boolean'
+                    ? forceState
+                    : !langMenu.classList.contains('is-open');
+
+                langMenu.classList.toggle('is-open', isOpen);
+                globeBtn.setAttribute('aria-expanded', String(isOpen));
+            };
+
+            globeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleLangMenu();
+            });
+
+            langOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const selectedLang = option.getAttribute('data-lang');
+                    if (!selectedLang) return;
+
+                    langOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+
+                    if (currentLangCode) {
+                        currentLangCode.textContent = selectedLang.toUpperCase();
+                    }
+
+                    toggleLangMenu(false);
+                    applyTranslations(selectedLang);
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#langDropdown') && langMenu.classList.contains('is-open')) {
+                    toggleLangMenu(false);
+                }
+            });
+        }
+
+        // 4. Подсветка активного пункта меню при скролле
+        const anchors = ['achievements', 'audience', 'system', 'start']
+            .map(id => document.getElementById(id))
+            .filter(Boolean);
+        const allNavLinks = document.querySelectorAll('.nav__link, .mobile-nav__link');
+
+        if (anchors.length > 0 && allNavLinks.length > 0) {
+            const highlightActiveSection = () => {
+                const scrollPosition = window.scrollY + 160;
+                let currentSectionId = '';
+
+                anchors.forEach(anchor => {
+                    if (anchor && anchor.offsetTop <= scrollPosition) {
+                        currentSectionId = anchor.getAttribute('id');
+                    }
+                });
+
+                allNavLinks.forEach(link => {
+                    link.classList.remove('is-active');
+                    if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('is-active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightActiveSection, { passive: true });
+            highlightActiveSection();
+        }
+
+    } catch (error) {
+        console.error("Initialization error in main.js:", error);
     }
-
-    // 4. Подсветка активного пункта меню при скролле
-    const anchors = ['achievements', 'audience', 'system', 'start'].map(id => document.getElementById(id));
-    const allNavLinks = document.querySelectorAll('.nav__link, .mobile-nav__link');
-
-    const highlightActiveSection = () => {
-        const scrollPosition = window.scrollY + 160;
-
-        let currentSectionId = '';
-        anchors.forEach(anchor => {
-            if (anchor && anchor.offsetTop <= scrollPosition) {
-                currentSectionId = anchor.getAttribute('id');
-            }
-        });
-
-        allNavLinks.forEach(link => {
-            link.classList.remove('is-active');
-            if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('is-active');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', highlightActiveSection, { passive: true });
-    highlightActiveSection();
 });
